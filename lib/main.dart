@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,15 +12,10 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupLocator();
 
-
   runApp(
-    DevicePreview(
-      builder:
-          (_) => ChangeNotifierProvider(
-            create: (_) => HomeViewmodel(repo : getIt<Repository>()),
-            child: const MyApp(),
-          ),
-      enabled: true,
+    ChangeNotifierProvider(
+      create: (_) => HomeViewmodel(repo: getIt<Repository>()),
+      child: const MyApp(),
     ),
   );
 }
@@ -32,8 +26,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
       title: 'S rocks music app',
       home: HomeScreenView(),

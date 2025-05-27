@@ -5,6 +5,3 @@
 # Xcode-related
 **/dgph
 **/xcuserdata/
-
-# Ignore Firebase options file
-lib/firebase_options.dart
