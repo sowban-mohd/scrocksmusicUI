@@ -21,7 +21,7 @@ void main() async {
             create: (_) => HomeViewmodel(repo : getIt<Repository>()),
             child: const MyApp(),
           ),
-      enabled: true,
+      enabled: false,
     ),
   );
 }
